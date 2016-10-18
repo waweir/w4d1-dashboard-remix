@@ -47,8 +47,19 @@
     tableHeader[4].innerHTML = 'Client'
 
 // 9. Make an array of objects, each object representing a single row in the table. Remove the commas from the ID column and convert it to an actual Number data type. Example: [{id: 1001, firstName: 'Lorem', lastName: 'ipsum', department: 'dolor', client: 'sit'}]
-
-
+    var rows = document.querySelectorAll('tbody tr')
+    var rowsArray = []
+    rows.forEach(function(row) {
+        var rowObject = {
+            id: Number(row.children[0].innerHTML.replace(',','')),
+            firstName: row.children[1].innerHTML,
+            lastName: row.children[2].innerHTML,
+            department: row.children[3].innerHTML,
+            client: row.children[4].innerHTML,
+        }
+        rowsArray.push(rowObject)
+    })
+    console.log(rowsArray)
 
 // 10. Make each word in the table capitalized.
     var words = Array.from(document.querySelectorAll('td'))
